@@ -24,9 +24,14 @@
         {{ end }}
       </section>
     {{ end }}
-
     {{ with .Site.Params.copyright }}
-      <section class="copyright">{{ . | safeHTML }}</section>
+      <section class="copyright">
+        {{ . | safeHTML }} {{now.Format "2006"}} {{ . | safeHTML }}
+      </section>
+    {{ end }}
+    
+    {{ with .Site.Params.footer.license }}
+      <section class="license">{{ . | safeHTML }}</section>
     {{ end }}
 
     {{ if ne .Site.Params.hidedesignbyline true }}
