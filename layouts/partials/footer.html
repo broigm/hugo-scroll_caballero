@@ -24,11 +24,14 @@
         {{ end }}
       </section>
     {{ end }}
-    {{ with .Site.Params.copyright }}
-      <section class="copyright">
-        {{ . | safeHTML }} {{now.Format "2006"}} {{ . | safeHTML }}
-      </section>
-    {{ end }}
+    <section class="copyright">
+      {{ with .Site.Params.copyright }}
+        {{ . | safeHTML }} {{now.Format "2006"}}
+      {{ end }}
+      {{ with .Site.Params.copyrightother }}
+        {{ . | safeHTML }}
+      {{ end }}
+    </section>
     
     {{ with .Site.Params.footer.license }}
       <section class="license">{{ . | safeHTML }}</section>
